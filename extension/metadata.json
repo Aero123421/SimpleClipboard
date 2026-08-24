@@ -1,0 +1,9 @@
+{
+  "uuid": "simpleclipboard@sahur.github.io",
+  "name": "SimpleClipboard",
+  "description": "A lightweight clipboard history with images, notes, and pins.",
+  "url": "https://github.com/Aero123421/SimpleClipboard",
+  "shell-version": ["46"],
+  "settings-schema": "org.gnome.shell.extensions.simpleclipboard",
+  "version": 1
+}

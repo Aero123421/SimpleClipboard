@@ -1,0 +1,8 @@
+/target/
+/.dev/
+/dist/
+*.deb
+*.zip
+*.tar.zst
+/.idea/
+/.vscode/

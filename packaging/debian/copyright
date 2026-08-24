@@ -1,0 +1,15 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: SimpleClipboard
+Source: https://github.com/Aero123421/SimpleClipboard
+
+Files: *
+Copyright: 2026 SimpleClipboard contributors
+License: Apache-2.0 or GPL-3+
+
+License: Apache-2.0
+ On Debian systems, the complete license text is available in
+ /usr/share/common-licenses/Apache-2.0.
+
+License: GPL-3+
+ On Debian systems, the complete license text is available in
+ /usr/share/common-licenses/GPL-3.

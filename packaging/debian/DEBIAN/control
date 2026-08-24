@@ -1,0 +1,9 @@
+Package: simpleclipboard
+Version: 0.1.0
+Section: utils
+Priority: optional
+Architecture: amd64
+Maintainer: SimpleClipboard contributors
+Depends: gnome-shell (>= 46), gnome-shell (<< 47), libc6 (>= 2.39), libgcc-s1
+Description: Lightweight clipboard history for GNOME 46
+ Stores text and image clipboard history locally and adds notes and pins.

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.simpleclipboard" path="/org/gnome/shell/extensions/simpleclipboard/">
+    <key name="toggle-menu" type="as">
+      <default>[]</default>
+      <summary>Open SimpleClipboard</summary>
+    </key>
+    <key name="open-images" type="as">
+      <default>[]</default>
+      <summary>Open the image tab</summary>
+    </key>
+    <key name="open-notes" type="as">
+      <default>[]</default>
+      <summary>Open the notes tab</summary>
+    </key>
+    <key name="open-pinned" type="as">
+      <default>[]</default>
+      <summary>Open the pinned tab</summary>
+    </key>
+    <key name="show-indicator" type="b">
+      <default>true</default>
+      <summary>Show the top bar indicator</summary>
+    </key>
+    <key name="paste-on-select" type="b">
+      <default>true</default>
+      <summary>Paste the selected item into the previously focused application</summary>
+    </key>
+    <key name="panel-opacity" type="i">
+      <range min="70" max="100"/>
+      <default>90</default>
+      <summary>Panel background opacity</summary>
+    </key>
+    <key name="blur-radius" type="i">
+      <range min="0" max="30"/>
+      <default>14</default>
+      <summary>Background blur radius</summary>
+    </key>
+    <key name="panel-width" type="i">
+      <range min="360" max="900"/>
+      <default>560</default>
+      <summary>Panel width</summary>
+    </key>
+    <key name="panel-height" type="i">
+      <range min="280" max="900"/>
+      <default>620</default>
+      <summary>Maximum panel height</summary>
+    </key>
+    <key name="development-daemon-path" type="s">
+      <default>''</default>
+      <summary>Trusted development daemon executable</summary>
+    </key>
+  </schema>
+</schemalist>

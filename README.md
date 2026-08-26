@@ -29,15 +29,14 @@ Rust is pinned by `rust-toolchain.toml`. Then run:
 ```sh
 ./scripts/check.sh
 ./scripts/dev-daemon.sh
-```
-
-In a second terminal:
-
-```sh
 ./scripts/dev-install-extension.sh
 ```
 
-On X11, press `Alt+F2`, type `r`, and press Enter. On Wayland, log out and back in. Enable the extension, open its settings, and assign `Super+V` if desired. The shortcut is empty by default so installation never steals an existing system binding. Restart `./scripts/dev-daemon.sh` after logging out and back in; packaged installs are started automatically by D-Bus. Version 0.1 supports GNOME Shell 46, as shipped by Ubuntu 24.04.
+On X11, press `Alt+F2`, type `r`, and press Enter. On Wayland, log out and back in. Enable the extension, open its settings, and assign `Super+V` if desired. The shortcut is empty by default so installation never steals an existing system binding. Version 0.1 supports GNOME Shell 46, as shipped by Ubuntu 24.04.
+
+`dev-daemon.sh` installs an enabled per-user systemd service. It survives
+terminal closure and starts again after login. Packaged installs are activated
+automatically by D-Bus instead.
 
 Development history uses `~/.local/share/simpleclipboard-dev`; a packaged install uses `~/.local/share/simpleclipboard`.
 

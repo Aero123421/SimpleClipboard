@@ -1,0 +1,15 @@
+[Unit]
+Description=SimpleClipboard development storage service
+Documentation=https://github.com/Aero123421/SimpleClipboard
+
+[Service]
+Type=dbus
+BusName=io.github.sahur.SimpleClipboard1
+Environment=SIMPLECLIPBOARD_PROFILE=dev
+ExecStart=%h/.local/libexec/simpleclipboard-dev
+Restart=always
+RestartSec=2s
+UMask=0077
+
+[Install]
+WantedBy=default.target

@@ -17,7 +17,7 @@ impl ClipboardService {
 #[zbus::interface(name = "io.github.sahur.SimpleClipboard1")]
 impl ClipboardService {
     fn ping(&self) -> &str {
-        "simpleclipboardd/0.1.0"
+        concat!("simpleclipboardd/", env!("CARGO_PKG_VERSION"))
     }
 
     fn capture_text(&self, text: &str, source_app: &str) -> fdo::Result<String> {
@@ -33,6 +33,16 @@ impl ClipboardService {
 
     fn list_items(&self, tab: &str, query: &str, limit: u32) -> fdo::Result<String> {
         encode(self.store.list_items(tab, query, limit))
+    }
+
+    fn list_items_page(
+        &self,
+        tab: &str,
+        query: &str,
+        limit: u32,
+        offset: u32,
+    ) -> fdo::Result<String> {
+        encode(self.store.list_items_page(tab, query, limit, offset))
     }
 
     fn get_item(&self, id: &str) -> fdo::Result<String> {

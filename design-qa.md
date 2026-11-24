@@ -52,7 +52,7 @@ No actionable P0, P1, or P2 visual differences remain for the requested iteratio
 
 ## Follow-up Polish
 
-- [P3] Add real date grouping (`今日`, `昨日`, older dates) once the history model needs it.
+- [Done] Real date grouping (`今日`, `昨日`, `直近7日間`, `今月`, `それ以前`) implemented across history, image, note, and pin views, along with image-card delete controls, keyboard navigation with scroll-follow, note editing, and pause-state indicators.
 - [P3] After a physical mouse/touchpad pass, tune the 56 px wheel step if the user's hardware feels too fast or slow.
 
 ## Final Result

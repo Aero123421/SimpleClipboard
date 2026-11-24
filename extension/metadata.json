@@ -5,5 +5,5 @@
   "url": "https://github.com/Aero123421/SimpleClipboard",
   "shell-version": ["46"],
   "settings-schema": "org.gnome.shell.extensions.simpleclipboard",
-  "version": 1
+  "version": 2
 }

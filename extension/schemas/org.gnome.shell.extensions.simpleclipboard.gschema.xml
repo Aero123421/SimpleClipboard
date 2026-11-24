@@ -25,6 +25,15 @@
       <default>true</default>
       <summary>Paste the selected item into the previously focused application</summary>
     </key>
+    <key name="panel-position" type="s">
+      <choices>
+        <choice value="bottom-right"/>
+        <choice value="center"/>
+        <choice value="pointer"/>
+      </choices>
+      <default>'bottom-right'</default>
+      <summary>Panel placement on the active monitor</summary>
+    </key>
     <key name="panel-opacity" type="i">
       <range min="70" max="100"/>
       <default>90</default>

@@ -7,7 +7,7 @@ asset='simpleclipboard_amd64.deb'
 version=${1:-}
 
 if ! printf '%s\n' "$version" | LC_ALL=C grep -Eq '^v[0-9]+\.[0-9]+\.[0-9]+$'; then
-    printf '%s\n' 'Pass an exact release version, for example: v0.1.0' >&2
+    printf '%s\n' 'Pass an exact release version, for example: v0.2.0' >&2
     exit 1
 fi
 
@@ -27,7 +27,7 @@ fi
 
 shell_major=$(gnome-shell --version | sed -n 's/.* \([0-9][0-9]*\)\..*/\1/p')
 if [ "$shell_major" != '46' ]; then
-    printf '%s\n' 'SimpleClipboard 0.1 currently supports GNOME Shell 46 only.' >&2
+    printf '%s\n' 'SimpleClipboard currently supports GNOME Shell 46 only.' >&2
     exit 1
 fi
 
@@ -64,7 +64,19 @@ release_url="$repository/releases/download/$version"
 curl --proto '=https' --tlsv1.2 -fsSLo "$temp_dir/$asset" "$release_url/$asset"
 printf '%s  %s\n' "$expected_digest" "$temp_dir/$asset" | sha256sum -c -
 
-sudo apt-get install -y "$temp_dir/$asset"
+sudo sh -eu -c '
+    expected=$1
+    name=$2
+    root_dir=$(mktemp -d)
+    trap '\''rm -rf -- "$root_dir"'\'' EXIT HUP INT TERM
+    chmod 0700 "$root_dir"
+    umask 077
+    cat > "$root_dir/$name"
+    printf "%s  %s\n" "$expected" "$root_dir/$name" | sha256sum -c -
+    chmod 0755 "$root_dir"
+    chmod 0644 "$root_dir/$name"
+    apt-get install -y "$root_dir/$name"
+' _ "$expected_digest" "$asset" < "$temp_dir/$asset"
 
 if gnome-extensions info simpleclipboard@sahur.github.io >/dev/null 2>&1; then
     gnome-extensions enable simpleclipboard@sahur.github.io || true

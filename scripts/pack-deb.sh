@@ -18,6 +18,11 @@ case "$stage_dir" in
     *) printf '%s\n' 'Unsafe staging path.' >&2; exit 1 ;;
 esac
 
+if [ "$(uname -s)" != 'Linux' ] || [ "$(uname -m)" != 'x86_64' ]; then
+    printf '%s\n' 'pack-deb.sh builds an amd64 Linux package and requires an x86_64 Linux host.' >&2
+    exit 1
+fi
+
 cd "$project_dir"
 cargo build --release --locked -p simpleclipboardd
 
@@ -35,7 +40,7 @@ install -m 0644 packaging/debian/copyright \
 sed "s/^Version: .*/Version: $version/" packaging/debian/DEBIAN/control > "$stage_dir/DEBIAN/control"
 chmod 0644 "$stage_dir/DEBIAN/control"
 install -m 0644 extension/metadata.json extension/extension.js extension/prefs.js \
-    extension/serviceClient.js \
+    extension/serviceClient.js extension/helpers.js \
     extension/stylesheet.css "$extension_dir/"
 install -m 0644 extension/schemas/*.xml "$extension_dir/schemas/"
 glib-compile-schemas --strict "$extension_dir/schemas"
